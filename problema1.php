@@ -3,9 +3,9 @@
      * APARTADO A
      */
     // Primero recibimos la información del form y vemos si exise la cookie o no
-    if (isset($_COOKIE["username"])) {
+    if (isset($_COOKIE["user"])) {
         // Si nuestro navegador contiene cookies, actualizamos el tiempo de vida de nuevo a una semana
-        setcookie("usuario",$_COOKIE["username"],time()+3600*24*7);
+        setcookie("usuario",$_COOKIE["user"],time()+3600*24*7);
     } else{
         iniciarSesion();
     }
@@ -24,14 +24,14 @@
     // Primero recibimos la información del form y vemos si exise la cookie o no
     if (isset($_COOKIE["username"])) {
         // Si nuestro navegador contiene cookies, actualizamos el tiempo de vida de nuevo a una semana
-        setcookie("usuario",$_COOKIE["username"],time()+3600*24*7);
+        setcookie("usuario",$_COOKIE["user"],time()+3600*24*7);
         temaLeido();
     } else{
         iniciarSesion();
     }
 
     function temaLeido(){
-        $nombreCookie = "cesta_de_".$_COOKIE["nombreUsuario"];
+        $nombreCookie = "cesta_de_".$_COOKIE["user"];
         echo '<style>
             a.Tema:visited{color: blue}
         </style>';
