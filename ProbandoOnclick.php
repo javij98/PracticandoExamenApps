@@ -12,10 +12,12 @@
     <a href="http://www.youtube.com" class="Tema">Youtube</a>
 
     <?php
-
+        session_start();
         if (isset($_COOKIE["user"])) {
             setcookie("user",$_COOKIE["user"]+1,time()+3600);// Una hora de tiempo de vida
+            echo '$_SESSION["user"] = '.$_SESSION["user"];
             pintar();
+            
             if ($_COOKIE["user"]>=1) {
                 
             }
@@ -25,6 +27,8 @@
             pintar();
         }
         
+        //echo '$_SESSION["user"] = '.$_SESSION["user"];
+
         function pintar(){
             echo "<style>a.Tema:visited{background-color: blue}</style>";
         }
